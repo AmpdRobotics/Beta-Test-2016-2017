@@ -1,36 +1,18 @@
 package org.usfirst.frc.team1708.robot;
 
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Solenoid;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Victor;
-import edu.wpi.first.wpilibj.buttons.Button;
-import org.usfirst.frc.team1708.robot.commands.ExampleCommand;
 
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	static RobotDrive robotdrive;
-	static Joystick joystick, joystick2;
-	static Solenoid arm;
-	static Compressor compressor;
-	static AnalogInput airPressure;
-	static Victor intake;
-	
+	private Joystick joystick;
+	private Joystick joystick2;
 	
 	public OI(){
-		compressor = new Compressor();
-		joystick = new Joystick(0);
-		joystick2 = new Joystick(1);
-		robotdrive = new RobotDrive(0,1,2,3);
-		airPressure = new AnalogInput(0);
-		intake = new Victor(5);
-		arm = new Solenoid(0);
+		setJoystick(new Joystick(0));
+		setJoystick2(new Joystick(1));
 	}
     //// CREATING BUTTONS
     // One type of button is a joystick button which is any button on a joystick.
@@ -38,6 +20,22 @@ public class OI {
     // number it is.
     // Joystick stick = new Joystick(port);
     // Button button = new JoystickButton(stick, buttonNumber);
+
+	public Joystick getJoystick() {
+		return joystick;
+	}
+
+	public void setJoystick(Joystick joystick) {
+		this.joystick = joystick;
+	}
+
+	public Joystick getJoystick2() {
+		return joystick2;
+	}
+
+	public void setJoystick2(Joystick joystick2) {
+		this.joystick2 = joystick2;
+	}
     
     // There are a few additional built in buttons you can use. Additionally,
     // by subclassing Button you can create custom triggers and bind those to
